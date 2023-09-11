@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 #editor {
-  width: 1200px;
+  width: 900px;
   margin: 0 auto;
   min-height: 400px;
 }
@@ -13,7 +13,7 @@
 }
 
 #qbWriteTitle {
-	width: 1195px;
+	width: 900px;
 	height: 30px;
 	border: rgb(204, 204, 204) solid 1px;
 	padding-left: 10px;
@@ -24,7 +24,7 @@
 }
 
 #qbWrite .wTd1 input{
-	width: 1185px;
+	width: 900px;
 	height: 40px;
 }
 
@@ -39,4 +39,8 @@
 #qbCategory {
 	width: 100px;
 	height: 25px;
+}
+
+#qbWrite .uA {
+	padding-right: 5px;
 }
