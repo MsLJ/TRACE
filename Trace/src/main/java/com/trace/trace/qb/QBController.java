@@ -79,12 +79,14 @@ public class QBController {
 	}
 
 	@RequestMapping("/qb.write")
-	public String qbWrite(QB qb, QBCount qbc, HttpServletRequest req) {
+	public String qbWrite(QB qb, QBCount qbc, HttpServletRequest req, @RequestParam(name = "category", defaultValue = "qnaboard") String q, Notice n) {
 		if (mDAO.islogined(req)) {
 			qDAO.write(qb, qbc, req);
-			qDAO.get(req);
-			qDAO.getCount(req);
-		}
+		} 
+		qDAO.get(req);
+		qDAO.getCount(req);
+		nDAO.getNoticeByCategory(req, q);
+		nDAO.getCount(n, req);
 		req.setAttribute("cp", "qb/qb");
 		req.setAttribute("cpSub", "qaBoard");
 		req.setAttribute("loginPage", "member/logined");
@@ -114,6 +116,7 @@ public class QBController {
 		mDAO.islogined(req);
 		qDAO.getDetail(qb, qbc, qbr, req);
 		qDAO.updateView(qb, qbc);
+		
 		req.setAttribute("cp", "qb/detail");
 		req.setAttribute("cpSub", "qbDetail");
 		req.setAttribute("loginPage", "member/logined");
@@ -152,12 +155,15 @@ public class QBController {
 	}
 
 	@RequestMapping("/qb.delete")
-	public String qbDelete(Member m, QB qb, HttpServletRequest req) {
+	public String qbDelete(Member m, QB qb, HttpServletRequest req, @RequestParam(name = "category", defaultValue = "qnaboard") String q, Notice n) {
 		if (mDAO.islogined(req)) {
 			qDAO.delete(qb);
-			qDAO.get(req);
-			qDAO.getCount(req);
-		}
+		} 
+		qDAO.get(req);
+		qDAO.getCount(req);
+		nDAO.getNoticeByCategory(req, q);
+		nDAO.getCount(n, req);
+		
 		req.setAttribute("cp", "qb/qb");
 		req.setAttribute("cpSub", "qaBoard");
 		req.setAttribute("loginPage", "member/logined");

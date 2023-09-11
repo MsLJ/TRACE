@@ -59,12 +59,18 @@ public class QBDAO {
 				pSize.add(i);
 			}
 			
+			if (startPage == 1) {
+				startPage = 2;
+			}
+			
 	        req.setAttribute("qb", qbPage);
 	        req.setAttribute("qbIsFirst", qbPage.isFirst());
 	        req.setAttribute("qbIsLast", qbPage.isLast());
 	        req.setAttribute("qbPageNumber", curPage + 1);
 	        req.setAttribute("pSize", pSize);
+	        req.setAttribute("qbStartPage", startPage);
 	        req.setAttribute("qbEndPage", endPage);
+	        req.setAttribute("qbLast", maxPage);
 	        
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -118,7 +124,9 @@ public class QBDAO {
 			req.setAttribute("qbIsLast", qbPage.isLast());
 			req.setAttribute("qbPageNumber", curPage + 1);
 			req.setAttribute("pSize", pSize);
-			req.setAttribute("qbEndPage", endPage);
+	        req.setAttribute("qbStartPage", startPage);
+	        req.setAttribute("qbEndPage", endPage);
+	        req.setAttribute("qbLast", maxPage);
 			req.setAttribute("qbKey", keyword);
 			req.setAttribute("qbCate", category);
 			
@@ -165,7 +173,7 @@ public class QBDAO {
 			}
 			
 			Date now = new Date();
-			qb.setCate(req.getParameter("category"));
+			qb.setCate(req.getParameter("cate"));
 			qb.setDate(now);
 			qr.save(qb);
 
@@ -239,7 +247,7 @@ public class QBDAO {
 		try {
 			qb = qr.findById(qb.getNo()).get();
 
-			qb.setCate(req.getParameter("category"));
+			qb.setCate(req.getParameter("cate"));
 			qb.setTitle(req.getParameter("title"));
 			qb.setTxt(req.getParameter("txt"));
 
