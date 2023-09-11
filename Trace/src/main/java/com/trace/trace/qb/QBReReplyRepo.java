@@ -9,5 +9,4 @@ import org.springframework.stereotype.Repository;
 public interface QBReReplyRepo extends CrudRepository<QBReReply, Integer> {
 
 	public abstract List<QBReReply> findAll();
-	
 }
