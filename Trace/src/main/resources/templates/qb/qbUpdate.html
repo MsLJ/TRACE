@@ -14,7 +14,7 @@
 			</tr>
 			<tr>
 				<td>
-					<select name="category" id="qbCategory">
+					<select name="cate" id="qbCategory">
 						<option value="Java">Java</option>
 						<option value="JavaScript">JavaScript</option>
 						<option value="Python">Python</option>
@@ -35,7 +35,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" class="uTd1"><input id="qbWriteTitle" name="title"
-					th:value="${qb.title}"></td>
+					th:value="${qb.title}" required></td>
 			</tr>
 			<tr>
 				<td colspan="2">
@@ -84,12 +84,11 @@
 						</span>
 					</div>
 					<div id="editor" th:utext="${qb.txt}"></div>
-					<input type="hidden" id="quill_html" name="content">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<button class="uBtn" type="submit">수정완료</button>
+					<button class="uBtn" type="submit">수정</button>
 				</td>
 			</tr>
 		</table>
