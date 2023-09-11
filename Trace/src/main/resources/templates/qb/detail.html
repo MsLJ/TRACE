@@ -5,7 +5,9 @@
 <title>Insert title here</title>
 </head>
 <body th:fragment="qbDetail">
-
+	<div align="left" style="margin-bottom: 30px;">
+		<a href="qb.go" style="font-size: 25pt; font-weight: 800">Q&A</a>
+	</div>
 	<table th:each="qb : ${qbDetails}" id="qbDetailTable">
 		<tr>
 			<td><input name="no" th:value="qb.no" type="hidden"></td>
@@ -101,7 +103,7 @@
 									</span>
 								</div>
 								<div id="editor1"></div>
-								<button class="button1" type="submit">작성완료</button>
+								<button class="button1" type="submit">작성</button>
 							</td>
 						</tr>
 					</table>
@@ -120,10 +122,8 @@
 							th:text="${#dates.format(qbr.date, 'yyyy-MM-dd HH:mm')}"></span>
 						<td align="right"
 							th:if="${session.loginMember != null and session.loginMember.id == qbr.qbrWriter.id1 or session.admin != null}">
-							<input class="qbrno" th:value="${qbr.qrno}" type="hidden">
-							<button class="rDeleteBtn" th:onclick="deleteReply([[${qbr.qrno}]],[[${qb.no}]])">삭제</button><button class="copyButton">답글</button>
+							<button class="rDeleteBtn" th:onclick="deleteReply([[${qbr.qrno}]],[[${qb.no}]])">삭제</button>
 						</td>
-
 					</tr>
 					<tr>
 						<td colspan="2" class="rTd1" th:utext="${qbr.txt}"></td>
@@ -144,6 +144,12 @@
 									<td class="rTd2" th:utext="${qbrr.txt}"></td>
 								</tr>
 							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input class="qbrno" th:value="${qbr.qrno}" type="hidden">
+							<button class="copyButton">댓글쓰기</button>
 						</td>
 					</tr>
 				</table>
