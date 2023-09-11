@@ -31,6 +31,10 @@
 	padding-right: 20px;
 }
 
+#qbDetailTable .td5 a {
+	font-size: 11pt;
+}
+
 #span1 {
 	padding: 2px;
 	vertical-align: middle;
@@ -41,7 +45,6 @@
 	height: 50px;
 	padding-left: 20px;
 	padding-right: 20px;
-	border-bottom: black solid 2px;
 	border-top: black solid 2px;
 	width: 800px;
 }
@@ -51,7 +54,9 @@
 }
 
 #qbDetailTable .td7 {
-	padding: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
 	height: 70%;
 	vertical-align: top;
 	width: 800px;
@@ -92,7 +97,7 @@
 #qbReply {
 	padding: 5px;
 	padding-left: 25px;
-	border-top: black solid 1px;
+	border-top: lightslategray solid 1px;
 	width: 100%;
 }
 
@@ -113,7 +118,7 @@
 #qbReReply {
 	padding: 5px;
 	width: 100%;
-	border-top: black solid 1px;
+	border-top: lightslategray dotted 1px;
 }
 
 #qbReReply .rTd2 {
@@ -127,9 +132,11 @@
 #qbReply .copyButton {
 	background-color: transparent;
 	border: none;
+	color: lightslategray;
 }
 
 #qbReply .rDeleteBtn {
 	background-color: transparent;
 	border: none;
+	color: lightslategray;
 }
