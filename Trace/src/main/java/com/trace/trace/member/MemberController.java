@@ -215,7 +215,30 @@ public class MemberController {
 		request.setAttribute("cpSub", "homeboard");
 		return "index";
 	}
-
+	@RequestMapping("member.go.reactivate")
+	public String memberGoReactivate(HttpServletRequest request,Member m,Notice n,CodeBoard cd) {
+		return "member/reactivate";
+		
+	}
+	@RequestMapping("member.reactivate")
+	public String memberReactivate(HttpServletRequest request,Member m,Notice n,CodeBoard cd) {
+		
+		mDAO.islogined(request);
+		mDAO.login(request, m);
+		mDAO.reactivate(request);
+		nDAO.get(request, 0, n);
+		cDAO.get(request, 0, cd);
+		drDAO.get(request);
+		qDAO.get(request);
+		fDAO.get(request);
+		
+		request.setAttribute("loginPage", "member/logined");
+		request.setAttribute("loginSub", "loginedM");
+		request.setAttribute("cp", "home");
+		request.setAttribute("cpSub", "homeboard");
+		return "index";
+		
+	}
 	@RequestMapping("member.findedpw")
 	public String memberFindedPW(HttpServletRequest request, Member m, MemberWriter mw, Notice n,CodeBoard cd) {
 
