@@ -39,8 +39,8 @@ function memberupdateck(f) {
 
 
 function memberbye() {
-	var really = prompt("탈퇴하시겠습니까? 탈퇴를 입력해주세요");
-	if (really == "탈퇴") {
+	var really = prompt("휴면 활성화하시겠습니까? 휴면를 입력해주세요");
+	if (really == "휴면") {
 		location.href = "member.delete";
 
 	}
