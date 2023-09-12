@@ -94,7 +94,8 @@ public class MemberDAO {
 		}
 	}
 	public boolean joinEmailIDCk(String email,String inputid) {
-		if (email!=inputid) {
+		if (email!=inputid||email==null) {
+			inputid="";
 			return false;
 		}else {
 			return true;
@@ -107,10 +108,7 @@ public class MemberDAO {
 			String emailckid=(String) request.getSession().getAttribute("emailuser");
 			String id=request.getParameter("email");
 			
-			if (joinEmailIDCk(emailckid, id)==false||emailckid==null) {
-				id="";
-				
-			}
+			joinEmailIDCk(emailckid, id);
 			
 			int leave = Integer.parseInt(request.getParameter("leave1"));
 			String birth1 = request.getParameter("birth1");
@@ -130,7 +128,7 @@ public class MemberDAO {
 			mw.setId1(id);
 			mw.setNick1(m.getNick());
 			mw.setIcon1(m.getIcon());
-			if (mr.findById(m.getId()).isEmpty()) {
+			if (mr.findById(m.getId()).isEmpty()&&mr.findByNick(m.getNick()).isEmpty()) {
 				mr.save(m);
 				mwr.save(mw);
 			}
@@ -179,9 +177,12 @@ public class MemberDAO {
 			mw.setId1(m.getId());
 			mw.setNick1(m.getNick());
 			mw.setIcon1(m.getIcon());
-			mr.save(m);
-			mwr.save(mw);
-			request.getSession().setAttribute("loginMember", m);
+			if (mr.findByNick(m.getNick()).isEmpty()) {
+				
+				mr.save(m);
+				mwr.save(mw);
+				request.getSession().setAttribute("loginMember", m);
+			}
 			
 			
 		} catch (Exception e) {

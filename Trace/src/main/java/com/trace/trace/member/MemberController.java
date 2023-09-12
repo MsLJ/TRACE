@@ -122,7 +122,6 @@ public class MemberController {
 		cDAO.get(request, 0, cd);
 		drDAO.get(request);
 		qDAO.get(request);
-		fDAO.get(request);
 
 		request.setAttribute("cp", "home");
 		request.setAttribute("cpSub", "homeboard");
@@ -142,7 +141,6 @@ public class MemberController {
 			nDAO.get(request, 0, n);
 			drDAO.get(request);
 			qDAO.get(request);
-			fDAO.get(request);
 			request.setAttribute("cp", "home");
 			request.setAttribute("cpSub", "homeboard");
 			
@@ -191,11 +189,14 @@ public class MemberController {
 	}
 
 	@RequestMapping("member.detail.update")
-	public String memberUpdateDetail(HttpServletRequest request, Member m, MemberWriter mw,CodeBoard cd) {
+	public String memberUpdateDetail(HttpServletRequest request, Member m, MemberWriter mw,CodeBoard cd,Notice n) {
 		mDAO.islogined(request);
 		mDAO.login(request, m);
 		mDAO.update(request, m, mw);
 		cDAO.get(request, 0, cd);
+		nDAO.get(request, 0, n);
+		drDAO.get(request);
+		qDAO.get(request);
 		request.setAttribute("loginPage", "member/logined");
 		request.setAttribute("loginSub", "loginedM");
 		request.setAttribute("cp", "home");
