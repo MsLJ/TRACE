@@ -1,6 +1,10 @@
 # TRACE
 멤버/뉴스/1대1문의/admin/채팅
-과정을 네이버 블로그에 정리 <a href="https://blog.naver.com/llife_/223209123943"> 팀 프로젝트 실제 환경 + 페이지 스크린샷</a>
+과정을 네이버 블로그에 정리
+
+<a href="https://blog.naver.com/llife_/223166439338">프로젝트 기간 매일 쓴 개발일지
+
+<a href="https://blog.naver.com/llife_/223209123943"> 팀 프로젝트 실제 환경 + 페이지 스크린샷</a>
 
 #주요 업무 정리
 
